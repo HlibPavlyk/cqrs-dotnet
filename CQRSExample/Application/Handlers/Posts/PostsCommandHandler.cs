@@ -21,6 +21,8 @@ public class PostsCommandHandler(Store store, IMediator mediator) : IRequestHand
             CreatedAt = DateTime.UtcNow
         };
         
+        // In the context of this system, imagine this involves complex business logic
+        // and interactions with multiple database tables.
         store.Posts.Add(post);
         await store.SaveChangesAsync(cancellationToken);
 
