@@ -20,5 +20,4 @@ public class PostsController(IMediator mediator) : Controller
     {
         return mediator.Send(request, cancellationToken);
     }
-  
 }

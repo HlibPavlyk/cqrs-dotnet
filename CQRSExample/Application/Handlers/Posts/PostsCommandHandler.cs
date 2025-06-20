@@ -10,7 +10,14 @@ public class PostsCommandHandler(Store store, IMediator mediator) : IRequestHand
 {
     public async Task<int> Handle(AddPostCommand request, CancellationToken cancellationToken)
     {
-        var post = new PostEntity { Author = request.Author, Text = request.Text };
+        var post = new PostEntity
+        {
+            Author = request.Author,
+            Content = request.Content,
+            ImageUrl = GetImageUrl(),
+            CreatedAt = DateTime.UtcNow
+        };
+        
         store.Posts.Add(post);
         await store.SaveChangesAsync(cancellationToken);
 
@@ -18,4 +25,7 @@ public class PostsCommandHandler(Store store, IMediator mediator) : IRequestHand
 
         return post.Id;
     }
+    
+    // Logic to get the image URL after save image to storage
+    private string GetImageUrl() => "https://example.com/image.jpg";
 }

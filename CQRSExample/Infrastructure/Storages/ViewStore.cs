@@ -6,6 +6,6 @@ namespace CQRSExample.Infrastructure.Storages;
 
 public class ViewStore
 {
-    public ConcurrentDictionary<int, PostViewModel> Posts { get; set; } = new();
-    public ConcurrentDictionary<int, ProfileViewModel> Profiles { get; set; } = new();
+    public ConcurrentDictionary<int, PostViewModel> Posts { get; } = new();
+    public ConcurrentDictionary<int, ProfileViewModel> Profiles { get; } = new();
 }

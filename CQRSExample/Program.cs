@@ -1,4 +1,4 @@
-using CQRSExample.Infrastructure.EventBus;
+using CQRSExample.Infrastructure.Extensions;
 using CQRSExample.Infrastructure.Storages;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,7 +10,6 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<Store>(c => c.UseInMemoryDatabase("db"));
 builder.Services.AddSingleton<ViewStore>();
-builder.Services.AddTransient<ViewStoreUpdater>();
 
 builder.Services.AddMediatR(cfg =>
 {
@@ -24,6 +23,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+await app.Services.SeedInMemoryDataWithEventsAsync();
 
 app.UseHttpsRedirection();
 app.UseRouting();
