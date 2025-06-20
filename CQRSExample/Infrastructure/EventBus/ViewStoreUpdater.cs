@@ -6,6 +6,9 @@ using MediatR;
 
 namespace CQRSExample.Infrastructure.EventBus;
 
+// ViewStoreUpdater is a placeholder implementation; 
+// in the future, it should contain the synchronization logic between Write storage and Read storage.
+
 public class ViewStoreUpdater(ViewStore viewStore) :
     INotificationHandler<PostAddedEventRequest>,
     INotificationHandler<ProfileUpdatedEventRequest>

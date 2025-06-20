@@ -6,6 +6,9 @@ using MediatR;
 
 namespace CQRSExample.Application.Handlers.Posts;
 
+// In this application, write operations are complex and occur frequently,
+// but reads make up about 90% of all operations.
+// Due to this uneven load distribution, CQRS is required
 public class PostsCommandHandler(Store store, IMediator mediator) : IRequestHandler<AddPostCommand, int>
 {
     public async Task<int> Handle(AddPostCommand request, CancellationToken cancellationToken)

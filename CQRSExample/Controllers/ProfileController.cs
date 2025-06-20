@@ -7,6 +7,8 @@ namespace CQRSExample.Controllers;
 
 [ApiController]
 [Route("api/profile")]
+// In the context of this application, CQRS isn't necessary for the profile feature,
+// since it's not heavily used and contains only simple logic — a standard CRUD approach with a single database is enough.
 public class ProfileController(IMediator mediator) : Controller
 {
    

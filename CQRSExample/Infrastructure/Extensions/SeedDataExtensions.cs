@@ -5,6 +5,7 @@ using MediatR;
 
 namespace CQRSExample.Infrastructure.Extensions;
 
+// Seed some initial data into the in-memory database and publish events
 public static class SeedDataExtensions
 {
     public static async Task SeedInMemoryDataWithEventsAsync(this IServiceProvider serviceProvider)

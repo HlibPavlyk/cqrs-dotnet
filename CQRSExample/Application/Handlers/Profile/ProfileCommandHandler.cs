@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CQRSExample.Application.Handlers.Profile;
 
+// In this application, the update operation has simple logic and isn't used frequently,
+// so there's no need for the overhead of CQRS — a standard approach with a single database is sufficient
 public class ProfileCommandHandler(Store store, IMediator mediator) : IRequestHandler<UpdateProfileCommand, int>
 {
     public async Task<int> Handle(UpdateProfileCommand request, CancellationToken cancellationToken)
